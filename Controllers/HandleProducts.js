@@ -22,7 +22,14 @@ module.exports = {
     },
     async findByName(req, res) { //return the product who match the name param
         const {name} = req.body
-        const data = await products.findOne({where: {name}})
+        const data = await products
+            .findAll({
+                where: {
+                    name: {
+                        [sequelize.Op.substring]: name
+                    }
+                }
+            })
         return res.json(data)
     },
     async findByType(req, res) {
@@ -68,4 +75,10 @@ module.exports = {
         return res.json(data)
     },
 
+    async delete(req, res) {
+        const {name} = req.body
+        const data = await products.findOne({where: name})
+        data.destroy();
+        return res.json(data)
+    }
 }
