@@ -15,4 +15,5 @@ route.get('/name', HandleProducts.findByName)
 route.get('/type', HandleProducts.findByType)
 route.get('/ready', HandleProducts.findByWeight)
 
+route.put('/update', HandleProducts.change)
 module.exports = route

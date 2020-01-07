@@ -10,6 +10,7 @@ module.exports = {
         const product = await products.create( { name, ammount, price, sellPrice, type, ready } );
         return res.json(product);
     },
+
     async all(req, res) { //return all data as a plain json
         const data = await products.findAll()//.map(found => found.get({ plain: true }))
         return res.json(data)
@@ -37,5 +38,34 @@ module.exports = {
                 ready: { [sequelize.Op.gte]: weight }
             }})
         return res.json(data)
-    }
+    },
+
+
+    async change(req, res) {
+        const {name, price, sellPrice, ammount, ready} = req.body;
+        let data = null
+
+        if(price)
+        {
+            data = await products.update({price}, {where: {name}})
+        }
+
+        if(sellPrice)
+        {
+            data = await products.update({sellPrice}, {where: {name}})
+        }
+
+        if(ammount)
+        {
+            data = await products.update({ammount}, {where: {name}})
+        }
+
+        if(ready)
+        {
+            data = await products.update({ready}, {where: {name}})
+        }
+
+        return res.json(data)
+    },
+
 }
