@@ -26,6 +26,11 @@ module.exports = {
             type: Sequelize.FLOAT,
             allowNull: false,
         },
+        sellPrice:
+        {
+            type: Sequelize.FLOAT,
+            allowNull: false,
+        },
         type:
         {
             type: Sequelize.STRING,

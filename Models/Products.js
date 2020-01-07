@@ -7,6 +7,7 @@ class products extends Model {
             name: DataTypes.STRING,
             ammount: DataTypes.FLOAT,
             price: DataTypes.FLOAT,
+            sellPrice: DataTypes.FLOAT,
             type: DataTypes.STRING,
             ready: DataTypes.FLOAT,
         },
