@@ -1,7 +1,10 @@
+const SECRET = require('./SECRET')
+
 module.exports = {
-    username: '',  
-    password: '',  
+    username: 'jeans',  
+    password: SECRET,  
     database: 'stock',  
     host: 'localhost',  
-    dialect: 'postgres'  
+    dialect: 'postgres',
+    define: {timestamps: true}
 }

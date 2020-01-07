@@ -15,5 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(route);
 
+console.log("We are listening...")
 
 app.listen(3001);
